@@ -1,12 +1,13 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Header from "./Header";
 import Home from "./Home";
 import Login from "./Login";
 import Checkout from "./Checkout";
+import Payment from "./Payment";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import {auth} from "./firebase";
-import {useStateValue} from "./StateProvider";
+import { auth } from "./firebase";
+import { useStateValue } from "./StateProvider";
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -38,11 +39,16 @@ function App() {
       <div className="app">
         <Switch>
           <Route path="/login">
-            <Login/>
+            <Login />
           </Route>
           <Route path="/checkout">
             <Header />
             <Checkout />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            <Payment />
+            <h1> I am the payment route</h1>
           </Route>
           <Route path="/">
             <Header />
